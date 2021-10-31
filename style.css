@@ -1,0 +1,134 @@
+:root {
+  --primary-font-color: #ffd60a;
+  --bgc-color: #003566;
+  --bgc-2-color: #001d3d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62, 5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bgc-color);
+  padding: 1rem 2rem;
+}
+
+.heading {
+  font-size: 3rem;
+  color: var(--primary-font-color);
+}
+
+.search {
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+  border: 3px solid var(--primary-font-color);
+  color: var(--primary-font-color);
+  border-radius: 100px;
+  outline: none;
+  background-color: var(--bgc-color);
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.search::placeholder {
+  color: var(--primary-font-color);
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.main {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: var(--bgc-2-color);
+  overflow: hidden;
+}
+
+.movie__box {
+  background-color: var(--bgc-color);
+  color: #fff;
+  border-radius: 5px;
+  margin: 1rem 0.5rem;
+  box-shadow: 0px 0px 1rem 0px rgba(0, 0, 0, 0.548);
+  cursor: pointer;
+  position: relative;
+  max-width: 350px;
+}
+
+.movie__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 1rem 1rem;
+}
+
+.movie__title {
+  font-weight: normal;
+  flex-wrap: wrap;
+  margin-right: 2rem;
+  flex: 0 0 75%;
+}
+
+.movie__rate {
+  background-color: var(--bgc-2-color);
+  text-align: center;
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  border-radius: 50%;
+}
+
+.movie__overview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 1rem 1rem;
+  transform: translateY(184%);
+  transition: all 0.5s;
+  opacity: 0;
+  min-height: 100%;
+  border-radius: 5px;
+}
+
+.movie__box:hover .movie__overview {
+  transform: translateY(0);
+  display: block;
+  opacity: 1;
+}
+
+.movie__img {
+  max-width: 350px;
+  border-radius: 5px;
+}
+
+.movie__overview h4 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 0.5rem;
+}
