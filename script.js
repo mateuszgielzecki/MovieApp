@@ -6,15 +6,23 @@ const main = document.querySelector('.main');
 const search = document.querySelector('.search');
 const form = document.getElementById('form');
 
-fetch(API_URL)
+const getMovies = function (url) {
+fetch(url)
     .then(res => res.json())
     .then(data => {
         console.log(data.results)
 
         renderMovies(data.results)
     })
+}
+
+getMovies(API_URL);
+
+
 
 const renderMovies = function (data) {
+    main.innerHTML = '';
+
     data.forEach(el => {
         const html = `<div class="movie__box">
         <div class="movie__poster">
@@ -23,7 +31,7 @@ const renderMovies = function (data) {
         </div>
         <div class="movie__info">
             <h3 class="movie__title">${el.title}</h3>
-            <p class="movie__rate">${el.vote_average}</p>
+            <p class="movie__rate ${getClassByRate(el.vote_average)}">${el.vote_average}</p>
         </div>
         <div class="movie__overview">
             <h4>Overview</h4>
@@ -35,21 +43,27 @@ const renderMovies = function (data) {
     });
 }
 
+function getClassByRate(vote) {
+    if(vote >= 8) {
+        return 'green'
+    } else if(vote >= 5) {
+        return 'orange'
+    } else {
+        return 'red'
+    }
+}
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const searchTerm = search.value + '"';
+    const searchTerm = search.value;
 
-    console.log(SEARCH_API + searchTerm);
+    if(searchTerm && searchTerm !== '') {
+        getMovies(SEARCH_API + searchTerm)
 
-    fetch(SEARCH_API + searchTerm)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data.results)
-
-            renderMovies(data.results)
-        })
-
-
+        search.value = '';
+    } else {
+        window.location.reload();
+    }
 
 })

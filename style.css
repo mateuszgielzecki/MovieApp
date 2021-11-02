@@ -24,6 +24,8 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  background-color: var(--bgc-2-color)
+
 }
 
 .header {
@@ -42,20 +44,13 @@ body {
 .search {
   font-family: inherit;
   font-size: 1.5rem;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   border: 3px solid var(--primary-font-color);
   color: var(--primary-font-color);
   border-radius: 100px;
   outline: none;
   background-color: var(--bgc-color);
   width: 100%;
-  transition: all 0.5s;
-}
-
-.search::placeholder {
-  color: var(--primary-font-color);
-  font-size: 1.5rem;
-  line-height: 1.5rem;
 }
 
 .main {
@@ -87,19 +82,22 @@ body {
 }
 
 .movie__title {
-  font-weight: normal;
+  font-weight: 700;
   flex-wrap: wrap;
   margin-right: 2rem;
   flex: 0 0 75%;
 }
 
 .movie__rate {
-  background-color: var(--bgc-2-color);
+  background-color: #eee;
   text-align: center;
   height: 3rem;
   width: 3rem;
   line-height: 3rem;
   border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: 1px solid #001d3d;
 }
 
 .movie__overview {
@@ -110,9 +108,10 @@ body {
   color: #fff;
   padding: 1rem 1rem;
   transform: translateY(184%);
-  transition: all 0.5s;
+  transition: all 0.3s;
   opacity: 0;
   min-height: 100%;
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -131,4 +130,16 @@ body {
   font-size: 1.5rem;
   border-bottom: 1px solid #fff;
   margin-bottom: 0.5rem;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.green {
+  color: green;
 }
